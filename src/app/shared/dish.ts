@@ -1,21 +1,14 @@
+import { Comment } from './comment';
 export class Dish {
-    id: string;
-    name: string;
-    image: string;
-    category: string;
-    featured: boolean;
-    label: string;
-    price: string;
-    description: string;
+    id: string | undefined;
+    name: string | undefined;
+    image: string | undefined;
+    category: string | undefined;
+    featured: boolean | undefined;
+    label: string | undefined;
+    price: string | undefined;
+    description: string | undefined;
+    comments: Comment[] | undefined;
 
-    constructor(id: string,name: string,image: string,category: string,featured: boolean,label: string,price: string,description: string){
-        this.id=id;
-        this.name=name;
-        this.image=image;
-        this.category=category;
-        this.featured=featured;
-        this.label=label;
-        this.price=price;
-        this.description=description;
-        }
+
 }
