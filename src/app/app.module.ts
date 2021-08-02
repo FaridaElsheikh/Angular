@@ -13,7 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule }  from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
 
@@ -34,6 +35,8 @@ import { LoginComponent } from './login/login.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import {MatSliderModule} from '@angular/material/slider';
 
+import { baseURL } from './shared/baseurl';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,7 @@ import {MatSliderModule} from '@angular/material/slider';
     
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -73,7 +77,8 @@ import {MatSliderModule} from '@angular/material/slider';
   providers: [
     DishService,
     LeaderService,
-    PromotionService
+    PromotionService,
+    { provide:'BaseURL', useValue: baseURL }
   ],
   entryComponents:[
     LoginComponent
