@@ -25,7 +25,7 @@ export class DishdetailComponent implements OnInit {
   next:string |undefined;
   commentForm!: FormGroup;
   comment!:Comment;
-  dishCopy!:Dish | any;
+  dishCopy!:Dish | any; //unneseccary 
 
   @ViewChild('cform') commentFormDirective!: NgForm;
 
