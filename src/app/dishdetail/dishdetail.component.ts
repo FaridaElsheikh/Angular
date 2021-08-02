@@ -91,12 +91,12 @@ export class DishdetailComponent implements OnInit {
     this.comment.date=new Date().toISOString();
     console.log(this.comment);
     this.dish.comments.push(this.comment);
+    this.commentFormDirective.reset();
     this.commentForm.reset({
       author:'',
       rating:5,
       comment:''
     });
-    //this.commentFormDirective.reset();
     console.log(this.comment);
   }
 

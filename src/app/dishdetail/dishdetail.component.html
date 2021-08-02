@@ -60,7 +60,6 @@
             <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
           </mat-form-field>
         </p>
-        <p>{{ commentForm.value | json}} {{commentForm.status | json}}</p>
         <p>
           <button mat-button [disabled]="commentForm.invalid" class="background-primary text-floral-white" >Submit</button>
         </p>
