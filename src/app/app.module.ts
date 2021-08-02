@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { DishService } from './services/dish.service';
 import { LeaderService } from './services/leader.service';
 import { HeaderComponent } from './header/header.component';
@@ -78,6 +79,7 @@ import { baseURL } from './shared/baseurl';
     DishService,
     LeaderService,
     PromotionService,
+    ProcessHTTPMsgService,
     { provide:'BaseURL', useValue: baseURL }
   ],
   entryComponents:[

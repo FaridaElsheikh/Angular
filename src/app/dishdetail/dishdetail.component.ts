@@ -45,7 +45,8 @@ export class DishdetailComponent implements OnInit {
     },
   }
   
-
+  errMess:string |undefined;
+  
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
     private location: Location,
@@ -59,7 +60,8 @@ export class DishdetailComponent implements OnInit {
     this.route.params
     .pipe(switchMap((params:Params)=>this.dishservice.getDish(params['id'])))
     .subscribe(
-      dish=>{this.dish =dish;  this.setPrevNext(dish.id);}
+      dish=>{this.dish =dish;  this.setPrevNext(dish.id);},
+      errmess=> this.errMess = <any> errmess
     );
   }
 
@@ -80,7 +82,7 @@ export class DishdetailComponent implements OnInit {
       comment:['',[Validators.required,Validators.minLength(2)]]
     });
     this.commentForm.valueChanges.subscribe(
-      data=>this.onValueChanged(data)
+      data=>this.onValueChanged(data),
     );
 
     this.onValueChanged(); //reset form validation messages
