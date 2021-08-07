@@ -35,10 +35,30 @@
       </div>
     </div>
   </div>
-  <div fxFlex fxFlexOffset="20px" class="form-size">
+
+  <div *ngIf="feedback" [@expand] [hidden]='!isShowingResponse'>
+    <h4>Your Submission</h4>
+    <p>
+      First Name: {{ feedback.firstname }} <br/>
+
+      Last Name: {{ feedback.lastname }} <br/>
+
+      Tel. Number: {{ feedback.telnum }} <br/>
+
+      Email: {{ feedback.email }} <br/>
+
+      Contact You?: {{ feedback.agree }} <br/>
+
+      How?: {{ feedback.contacttype }} <br/>
+      Feedback: {{ feedback.message }} <br/>
+    </p>
+  </div>
+
+  <div fxFlex fxFlexOffset="20px" class="form-size" [hidden]='!returnedFeedback && feedback || isShowingResponse'>
     <h3>Send us your Feedback</h3>
     <p>{{ feedbackForm.value | json}} {{feedbackForm.status | json}}</p>
-    <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+
+        <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
@@ -80,4 +100,11 @@
       [disabled]="feedbackForm.invalid">Submit</button>
     </form>
   </div>
+
+  <div fxFlex [hidden]="returnedFeedback || !feedback">
+    <mat-spinner></mat-spinner>
+    <h4>Submitting feedback</h4>
+  </div>
+
+
 </div>
