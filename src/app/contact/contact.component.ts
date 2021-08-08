@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder,FormGroup,NgForm,Validators } from '@angular/forms';
-import { flyInOut } from '../animations/app.animation';
+import { expand, flyInOut } from '../animations/app.animation';
 import { FeedbackService } from '../services/feedback.service';
 import { Feedback,ContactType } from '../shared/feedback';
 
@@ -13,7 +13,8 @@ import { Feedback,ContactType } from '../shared/feedback';
     'style': 'display: block'
   },
   animations: [
-    flyInOut()
+    flyInOut(),
+    expand()
   ]
 })
 export class ContactComponent implements OnInit {
