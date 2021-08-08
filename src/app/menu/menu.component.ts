@@ -19,7 +19,7 @@ import { expand } from '../animations/app.animation';
 })
 export class MenuComponent implements OnInit {
 
-  dishes:Dish[] |undefined;
+  dishes!:Dish[] ;
   errMess:string |undefined;
 
   constructor(private dishService:DishService,
